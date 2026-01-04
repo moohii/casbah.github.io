@@ -1,0 +1,171 @@
+/* عصري: ألوان متدرجة، زوايا دائرية، ظل، أزرار تفاعلية، خطوط واضحة */
+body {
+   font-family: 'Cairo', system-ui, sans-serif;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #f1f5f9;
+  min-height: 100vh;
+}
+
+.hero-bg {
+  background: linear-gradient(120deg, rgba(56,189,248,0.12), rgba(251,191,36,0.10)),
+    url('https://images.unsplash.com/photo-1611325742410-42a9c7c853a2?auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  border-radius: 0 0 2.5rem 2.5rem;
+  box-shadow: 0 8px 32px rgba(30,64,175,0.18);
+}
+
+header, footer {
+  background: rgba(15,23,42,0.92);
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 16px rgba(56,189,248,0.10);
+}
+
+.card-glass {
+  backdrop-filter: blur(14px);
+  background: rgba(15,23,42,0.75);
+  border: 1px solid rgba(148,163,184,0.25);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  transition: transform .4s ease, box-shadow .4s ease;
+}
+
+.card-glass:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 45px rgba(56,189,248,0.35);
+}
+
+.chip {
+  background: linear-gradient(90deg, #38bdf8 0%, #fcd34d 100%);
+  color: #1e293b;
+  border-radius: 9999px;
+  padding: 0.25rem 1rem;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(56,189,248,0.10);
+}
+
+h1, h2, h3 {
+  font-family: 'Cairo', 'Segoe UI', Arial, sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  color: #fff;
+}
+
+h1 span {
+  color: #38bdf8;
+  font-weight: 700;
+}
+
+
+nav button, a.button, .modern-btn, a[href*="facebook"] {
+  background: linear-gradient(90deg, #1877f2 0%, #38bdf8 60%, #fcd34d 100%);
+  color: #fff !important;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 4px 16px rgba(24,119,242,0.13), 0 2px 8px rgba(56,189,248,0.10);
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+  cursor: pointer;
+  outline: 2px solid #fff2;
+  outline-offset: 2px;
+}
+nav button:hover, a.button:hover, .modern-btn:hover, a[href*="facebook"]:hover {
+  background: linear-gradient(90deg, #fcd34d 0%, #38bdf8 60%, #1877f2 100%);
+  color: #fff !important;
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 6px 24px rgba(24,119,242,0.18), 0 2px 8px rgba(56,189,248,0.13);
+}
+
+section, main {
+  border-radius: 1.5rem;
+  background: rgba(15,23,42,0.80);
+  box-shadow: 0 2px 16px rgba(56,189,248,0.08);
+  margin-bottom: 2rem;
+}
+
+input, textarea {
+  border-radius: 0.75rem;
+  border: 1px solid #38bdf8;
+  padding: 0.5rem 1rem;
+  background: #1e293b;
+  color: #f1f5f9;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: #1e293b;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(120deg, #38bdf8 0%, #fcd34d 100%);
+  border-radius: 8px;
+}
+
+/* تأثيرات إضافية */
+.fade-in { opacity: 0; transform: translateY(16px); transition: opacity 700ms, transform 700ms; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .hero-bg, section, main, header, footer { border-radius: 0.75rem; }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.25rem; }
+}
+
+/* Mobile-specific refinements */
+@media (max-width: 600px) {
+  /* Show a simple horizontal nav on small screens (overrides utility class hiding) */
+  header nav { display: flex !important; gap: 8px; padding: 8px 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  /* Tighter spacing for the oneui strip */
+  .oneui-card { padding: 12px; border-radius: 16px; }
+  .oneui-row { gap: 10px; padding: 10px; }
+  .oneui-icon { font-size: 1.2rem; }
+  .oneui-title { font-size: 0.65rem; }
+  .oneui-value { font-size: 0.9rem; }
+
+  /* Make hero grid stack cleanly and ensure media scales */
+  main > section.grid { grid-template-columns: 1fr !important; }
+  video { width: 100% !important; max-width: 100%; height: auto; display: block; border-radius: 1rem; margin-top: 0.5rem; }
+
+  /* Reduce large shadows and outlines which may appear heavy on small screens */
+  nav button, a.button, .modern-btn, a[href*="facebook"] { box-shadow: none; outline: none; }
+
+  /* Ensure hero background focuses on top area on narrow screens */
+  .hero-bg { background-position: center top; }
+}
+
+.oneui-card {
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(20px);
+  border-radius: 28px;
+  padding: 16px 18px;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+
+.oneui-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.05);
+}
+
+.oneui-icon {
+  font-size: 1.6rem;
+}
+
+.oneui-title {
+  font-size: 0.75rem;
+  color: rgba(226,232,240,0.75);
+}
+
+.oneui-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+}
