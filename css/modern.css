@@ -5,7 +5,45 @@ body {
   color: #f1f5f9;
   min-height: 100vh;
 }
+<!-- 1) أضف هذا الـ CSS داخل <head> (بعد ملفات CSS أو في ملف CSS مشترك) -->
+<style>
+  /* Responsive YouTube embed */
+  .video-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    /* 16:9 ratio -> 9/16 = 56.25% padding-bottom */
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+  }
+  .video-container iframe,
+  .video-container object,
+  .video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
 
+  /* بخيارات أصغر للجوال: تضخيم نسبة الارتفاع قليلاً لتحسين الرؤية العمودية */
+  @media (max-width: 420px) {
+    .video-container { padding-bottom: 66.66%; } /* يزيد الارتفاع الظاهر للفيديو على شاشات صغيرة */
+  }
+</style>
+
+<!-- 2) استبدل iframe القديم (الذي كان يحتوي على width و height ثابتين) بهذا الكود -->
+<div class="video-container">
+  <iframe 
+    src="https://www.youtube.com/embed/fSehVh1wtjY?list=RDfSehVh1wtjY" 
+    title="[FREE FOR PROFIT] Melodic Trap Type Beat – “UNBROKEN SPIRIT” | Freestyle Rap Instrumental" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen
+    loading="lazy">
+  </iframe>
+</div>
 .hero-bg {
   background: linear-gradient(120deg, rgba(56,189,248,0.12), rgba(251,191,36,0.10)),
     url('https://images.unsplash.com/photo-1611325742410-42a9c7c853a2?auto=format&fit=crop&w=1600&q=80');
@@ -263,3 +301,4 @@ input, textarea {
 .rounded-full { border-radius: 9999px; }
 .animate-pulse { animation: pulse 2s cubic-bezier(0.4,0,0.6,1) infinite; }
 @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
+
